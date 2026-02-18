@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@theme {
+  --color-bridalPink: #ec4899;
+  --color-bridalRose: #f43f5e;
+  --color-bridalGold: #d4af37;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.fade-up {
+  animation: fadeUp 0.9s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

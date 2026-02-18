@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Profile from "../assets/profile-pic.jpg";
 
 const Home = () => {
   return (
@@ -9,34 +10,43 @@ const Home = () => {
 
       {/* Main Content */}
       <main className="pt-20 relative z-10 bg-pink-50">
+        {/*  Hero Section */}
+        <section className="relative bg-pink-50">
+          <div className="max-w-7xl mx-auto px-6 md:px-20 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="text-center md:text-left">
+              <h1
+                className="text-4xl md:text-6xl text-[#2A2A2A] leading-tight mb-6"
+                style={{ fontFamily: "Playfair Display" }}
+              >
+                Sparkle & Glow
+              </h1>
 
-        {/* 🔥 Hero Section */}
-        <section className="relative overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1607746882042-944635dfe10e"
-            alt="Bridal Makeup"
-            className="w-full h-[75vh] md:h-[90vh] object-cover"
-          />
+              <div className="w-24 h-[2px] bg-[#C6A75E] mb-6 mx-auto md:mx-0"></div>
 
-          <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-4">
-            <h1
-              className="text-white text-3xl md:text-5xl font-bold mb-4 leading-tight"
-              style={{ fontFamily: "Playfair Display" }}
-            >
-              Elegant Bridal Makeup
-            </h1>
+              <p className="text-gray-600 text-lg mb-8 max-w-lg">
+                Professional bridal and beauty artistry crafted with elegance,
+                warmth, and timeless charm.
+              </p>
 
-            <p className="text-white/90 text-lg md:text-xl mb-8 max-w-xl">
-              Making Your Special Day More Beautiful
-            </p>
+              <button className="border border-[#C6A75E] text-[#2A2A2A] px-8 py-3 rounded-full hover:bg-[#C6A75E] hover:text-white transition duration-300">
+                Book Appointment
+              </button>
+            </div>
 
-            <button className="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white px-8 py-3 rounded-full shadow-xl transition-all duration-300 hover:scale-105">
-              Book Now
-            </button>
+            {/* Right Image */}
+            <div className="relative flex justify-center md:justify-end w-full">
+              {/* soft bridal glow */}
+              <div className="absolute-inset-4 bg-gradient-to-tr from-pink-200/40 to-rose-200/40 rounded-3xl blur-2xl"></div>
+
+              <img src={Profile} alt="Beauty Studio"
+                className="relativew-[85%] sm:w-[75%] md:w-[420px] lg:w-[460px] xl:w-[500px] h-auto rounded-2xl shadow-2xl object-cover transition duration-500 hover:scale-[1.02]"
+              />
+            </div>
           </div>
         </section>
 
-        {/* 💎 Services Section */}
+        {/*  Services Section */}
         <section className="py-20 px-6 md:px-20 text-center">
           <h2
             className="text-3xl md:text-4xl mb-14 font-semibold text-pink-600"
@@ -63,9 +73,7 @@ const Home = () => {
                   alt={service}
                   className="w-full h-48 object-cover rounded-xl mb-5 transition-transform duration-500 group-hover:scale-105"
                 />
-                <h3 className="text-xl font-medium text-gray-700">
-                  {service}
-                </h3>
+                <h3 className="text-xl font-medium text-gray-700">{service}</h3>
               </div>
             ))}
           </div>

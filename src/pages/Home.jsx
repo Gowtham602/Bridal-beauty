@@ -11,56 +11,57 @@ const Home = () => {
       {/* Main Content */}
       <main className="pt-10 relative z-10 bg-pink-50">
         {/*  Hero Section */}
-      
-        <section className="relative bg-pink-50 overflow-hidden pt-20 md:pt-29 pb-20">
-          <div className="max-w-7xl mx-auto px-6 md:px-20 grid md:grid-cols-2 gap-10 items-center">
+
+        <section className="relative bg-pink-50 overflow-hidden pt-25 md:pt-25 pb-24">
+          <div className="max-w-6xl mx-auto px-6 md:px-16 grid md:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
-            <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-xl mx-auto md:mx-0">
+            <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-lg mx-auto md:mx-0">
               <p
-                className="uppercase tracking-[4px] text-xs text-[#C6A75E] mb-5"
+                className="uppercase tracking-[5px] text-[11px] text-[black] mb-6 fade-luxury"
                 style={{ fontFamily: "Poppins, sans-serif" }}
               >
-                Luxury Bridal & Beauty Studio
+                {/* Luxury Bridal & Beauty Studio */}
+                Making Your Special Day More Beautiful
               </p>
 
               <h1
-                className="text-4xl md:text-6xl text-[#2A2A2A] leading-tight mb-6 font-normal"
+                className="text-4xl md:text-6xl text-[#2A2A2A] leading-[1.15] mb-8 font-light fade-luxury delay-1"
                 style={{ fontFamily: "Playfair Display, serif" }}
               >
                 Dreams <span className="italic text-[#C6A75E]">Makeover</span>
               </h1>
 
-              <div className="w-16 h-[2px] bg-[#C6A75E] mb-8"></div>
+              <div className="w-14 h-[2px] bg-[#C6A75E] mb-10 fade-luxury delay-1"></div>
 
               <p
-                className="text-gray-600 text-base md:text-lg leading-relaxed mb-10"
+                className="text-gray-600 text-[15px] md:text-[17px] leading-loose mb-12 fade-luxury delay-2"
                 style={{ fontFamily: "Poppins, sans-serif" }}
               >
-                At Dreams Makeover, we create timeless bridal and beauty
+                At Dreams Makeover, we create refined bridal and beauty
                 transformations designed to enhance your natural elegance. Every
                 detail is thoughtfully curated to make you feel confident,
                 radiant, and unforgettable on your special day.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
-                <button className="bg-[#C6A75E] text-white px-10 py-3 text-sm tracking-wider rounded-full hover:bg-[#b89347] transition duration-300 shadow-lg w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto fade-luxury delay-3">
+                <button className="bg-[#C6A75E] text-white px-12 py-3 text-[12px] tracking-[2px] rounded-full hover:bg-[#b89347] transition duration-300 shadow-lg w-full sm:w-auto">
                   RESERVE YOUR DATE
                 </button>
 
-                <button className="border border-[#C6A75E] text-[#2A2A2A] px-10 py-3 text-sm tracking-wider rounded-full hover:bg-[#C6A75E] hover:text-white transition duration-300 w-full sm:w-auto">
+                <button className="border border-[#C6A75E] text-[#2A2A2A] px-12 py-3 text-[12px] tracking-[2px] rounded-full hover:bg-[#C6A75E] hover:text-white transition duration-300 w-full sm:w-auto">
                   EXPLORE SERVICES
                 </button>
               </div>
             </div>
 
             {/* Right Image */}
-            <div className="relative flex justify-center md:justify-end">
-              <div className="absolute inset-6 bg-gradient-to-tr from-pink-200/40 to-rose-200/40 rounded-3xl blur-3xl"></div>
+            <div className="relative flex justify-center md:justify-end fade-luxury delay-2">
+              <div className="absolute inset-10 bg-gradient-to-tr from-pink-200/40 to-rose-200/40 rounded-[40px] blur-3xl"></div>
 
               <img
                 src={Profile}
                 alt="Dreams Makeover Bridal Studio"
-                className="relative w-[85%] sm:w-[75%] md:w-[460px] rounded-3xl shadow-xl object-cover transition duration-500 hover:scale-[1.02]"
+                className="relative w-[85%] md:w-[480px] rounded-[35px] shadow-[0_25px_70px_rgba(0,0,0,0.12)] object-cover transition duration-700 hover:scale-[1.02]"
               />
             </div>
           </div>

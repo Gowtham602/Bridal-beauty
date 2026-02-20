@@ -26,15 +26,13 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 md:px-6 flex justify-between items-center">
-
         {/*  Premium Logo */}
         <div className="flex items-center gap-3 cursor-pointer group select-none shrink-0">
           <img
             src={logo}
             alt="Bridal Beauty Logo"
-className="w-12 h-12 md:w-14 md:h-14 object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-105"
-style={{ imageRendering: "auto" }}
-
+            className="w-12 h-12 md:w-14 md:h-14 object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-105"
+            style={{ imageRendering: "auto" }}
           />
 
           <div className="leading-tight">

@@ -9,38 +9,58 @@ const Home = () => {
       <Navbar />
 
       {/* Main Content */}
-      <main className="pt-20 relative z-10 bg-pink-50">
+      <main className="pt-10 relative z-10 bg-pink-50">
         {/*  Hero Section */}
-        <section className="relative bg-pink-50">
-          <div className="max-w-7xl mx-auto px-6 md:px-20 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+      
+        <section className="relative bg-pink-50 overflow-hidden pt-20 md:pt-29 pb-20">
+          <div className="max-w-7xl mx-auto px-6 md:px-20 grid md:grid-cols-2 gap-10 items-center">
             {/* Left Content */}
-            <div className="text-center md:text-left">
-              <h1
-                className="text-4xl md:text-6xl text-[#2A2A2A] leading-tight mb-6"
-                style={{ fontFamily: "Playfair Display" }}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-xl mx-auto md:mx-0">
+              <p
+                className="uppercase tracking-[4px] text-xs text-[#C6A75E] mb-5"
+                style={{ fontFamily: "Poppins, sans-serif" }}
               >
-                Sparkle & Glow
-              </h1>
-
-              <div className="w-24 h-[2px] bg-[#C6A75E] mb-6 mx-auto md:mx-0"></div>
-
-              <p className="text-gray-600 text-lg mb-8 max-w-lg">
-                Professional bridal and beauty artistry crafted with elegance,
-                warmth, and timeless charm.
+                Luxury Bridal & Beauty Studio
               </p>
 
-              <button className="border border-[#C6A75E] text-[#2A2A2A] px-8 py-3 rounded-full hover:bg-[#C6A75E] hover:text-white transition duration-300">
-                Book Appointment
-              </button>
+              <h1
+                className="text-4xl md:text-6xl text-[#2A2A2A] leading-tight mb-6 font-normal"
+                style={{ fontFamily: "Playfair Display, serif" }}
+              >
+                Dreams <span className="italic text-[#C6A75E]">Makeover</span>
+              </h1>
+
+              <div className="w-16 h-[2px] bg-[#C6A75E] mb-8"></div>
+
+              <p
+                className="text-gray-600 text-base md:text-lg leading-relaxed mb-10"
+                style={{ fontFamily: "Poppins, sans-serif" }}
+              >
+                At Dreams Makeover, we create timeless bridal and beauty
+                transformations designed to enhance your natural elegance. Every
+                detail is thoughtfully curated to make you feel confident,
+                radiant, and unforgettable on your special day.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
+                <button className="bg-[#C6A75E] text-white px-10 py-3 text-sm tracking-wider rounded-full hover:bg-[#b89347] transition duration-300 shadow-lg w-full sm:w-auto">
+                  RESERVE YOUR DATE
+                </button>
+
+                <button className="border border-[#C6A75E] text-[#2A2A2A] px-10 py-3 text-sm tracking-wider rounded-full hover:bg-[#C6A75E] hover:text-white transition duration-300 w-full sm:w-auto">
+                  EXPLORE SERVICES
+                </button>
+              </div>
             </div>
 
             {/* Right Image */}
-            <div className="relative flex justify-center md:justify-end w-full">
-              {/* soft bridal glow */}
-              <div className="absolute-inset-4 bg-gradient-to-tr from-pink-200/40 to-rose-200/40 rounded-3xl blur-2xl"></div>
+            <div className="relative flex justify-center md:justify-end">
+              <div className="absolute inset-6 bg-gradient-to-tr from-pink-200/40 to-rose-200/40 rounded-3xl blur-3xl"></div>
 
-              <img src={Profile} alt="Beauty Studio"
-                className="relativew-[85%] sm:w-[75%] md:w-[420px] lg:w-[460px] xl:w-[500px] h-auto rounded-2xl shadow-2xl object-cover transition duration-500 hover:scale-[1.02]"
+              <img
+                src={Profile}
+                alt="Dreams Makeover Bridal Studio"
+                className="relative w-[85%] sm:w-[75%] md:w-[460px] rounded-3xl shadow-xl object-cover transition duration-500 hover:scale-[1.02]"
               />
             </div>
           </div>

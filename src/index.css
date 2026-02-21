@@ -1,13 +1,22 @@
 @import "tailwindcss";
-@theme {
-  --color-bridalPink: #ec4899;
-  --color-bridalRose: #f43f5e;
-  --color-bridalGold: #d4af37;
+
+/* ============================= */
+/* Royal Color Theme */
+/* ============================= */
+:root {
+  --royal-bg: #F8F4EF;
+  --royal-dark: #1E1B18;
+  --royal-gold: #C6A75E;
 }
 
-html {
+/* Smooth Scroll Backup */
+/* html {
   scroll-behavior: smooth;
-}
+} */
+
+/* ============================= */
+/* Fade Animation */
+/* ============================= */
 .fade-up {
   animation: fadeUp 0.9s ease forwards;
 }
@@ -128,4 +137,78 @@ html {
 @keyframes sparkleFade {
   0% { opacity: 1; transform: scale(1); }
   100% { opacity: 0; transform: scale(2); }
+}
+
+
+
+/* // gallery  */
+/* Fade In Animation */
+.fade-in {
+  animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gold Shimmer Border */
+.shimmer {
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(198, 167, 94, 0.4),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmerMove 3s infinite;
+}
+
+@keyframes shimmerMove {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+/* Scroll Animation */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s ease;
+}
+
+.scroll-animate.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Parallax Effect */
+.parallax {
+  transform: translateY(0);
+  transition: transform 0.6s ease;
+}
+
+.group:hover .parallax {
+  transform: translateY(-10px) scale(1.1);
+}
+
+/* Sparkle Effect */
+.sparkle-container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, #C6A75E 1px, transparent 1px);
+  background-size: 80px 80px;
+  animation: sparkleMove 20s linear infinite;
+  opacity: 0.15;
+}
+
+@keyframes sparkleMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(-200px); }
 }

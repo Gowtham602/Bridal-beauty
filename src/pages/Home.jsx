@@ -2,10 +2,36 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Profile from "../assets/profile-pic.jpg";
+import PremiumGallery from "../components/PremiumGallery";
+// for smoth animation for scroller 
+import Lenis from "@studio-freight/lenis";
+import { useEffect } from "react";
+
+
 
 const Home = () => {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1,
+      // asing: (t) => 1 - Math.pow(1 - t, 3),
+      smooth: true,
+      smoothTouch: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
   return (
     <>
+    
       <Navbar />
 
       {/* Main Content */}
@@ -137,26 +163,8 @@ const Home = () => {
         </section>
 
         {/* 📸 Gallery Section */}
-        <section className="py-20 bg-white px-6 md:px-20 text-center">
-          <h2
-            className="text-3xl md:text-4xl mb-14 text-pink-600"
-            style={{ fontFamily: "Playfair Display" }}
-          >
-            Our Gallery
-          </h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-            {[1, 2, 3, 4].map((img) => (
-              <div key={img} className="overflow-hidden rounded-xl">
-                <img
-                  src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-                  alt="Gallery"
-                  className="w-full h-full object-cover transition duration-500 hover:scale-110"
-                />
-              </div>
-            ))}
-          </div>
-        </section>
+       {/* 📸 Premium Gallery Section */}
+        <PremiumGallery/>
 
         {/* 📞 Contact Section */}
         <section className="py-20 px-6 md:px-20 bg-pink-100 text-center">

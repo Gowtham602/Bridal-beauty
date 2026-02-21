@@ -48,3 +48,84 @@ html {
 .delay-1 { animation-delay: 0.3s; }
 .delay-2 { animation-delay: 0.6s; }
 .delay-3 { animation-delay: 0.9s; }
+
+
+
+/* // butterfly  */
+/* Butterfly container */
+.butterfly-container {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  animation: float 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* Parallax floating */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-40px); }
+}
+
+/* Butterfly shape */
+.butterfly {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+/* Wings */
+.wing {
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  background: linear-gradient(to bottom, #ff9ecb, #ff4d88);
+  border-radius: 50% 50% 50% 50%;
+  opacity: 0.9;
+  animation: flap 0.4s ease-in-out infinite alternate;
+}
+
+.wing.left {
+  left: -15px;
+  transform-origin: right center;
+}
+
+.wing.right {
+  right: -15px;
+  transform-origin: left center;
+}
+
+/* Flap animation */
+@keyframes flap {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(60deg); }
+}
+
+/* Body */
+.body {
+  position: absolute;
+  left: 50%;
+  top: 5px;
+  width: 4px;
+  height: 25px;
+  background: #333;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* Sparkle trail */
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: gold;
+  border-radius: 50%;
+  top: 35px;
+  left: 12px;
+  animation: sparkleFade 1.5s linear infinite;
+}
+
+@keyframes sparkleFade {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(2); }
+}

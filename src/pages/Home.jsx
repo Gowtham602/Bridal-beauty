@@ -1,23 +1,106 @@
 import React from "react";
+import emailjs from "@emailjs/browser";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-// image 
+// image
 import Profile from "../assets/profile-pic.jpg";
-import Bridal from "../assets/bridal-pic-original.jpg"
-import Reception from "../assets/reception-pic-2.jpg"
-import Mahanthi from "../assets/mahanthi-pic-1.jpg"
-import Saree from "../assets/saree-draping-pic-2.jpg"
-import Hair from "../assets/hairstyling.jpg"
-import Party from "../assets/partymakeup.jpg"
+import Bridal from "../assets/bridal-pic-original.jpg";
+import Reception from "../assets/reception-pic-2.jpg";
+import Mahanthi from "../assets/mahanthi-pic-1.jpg";
+import Saree from "../assets/saree-draping-pic-2.jpg";
+import Hair from "../assets/hairstyling.jpg";
+import Party from "../assets/partymakeup.jpg";
 
 import PremiumGallery from "../components/PremiumGallery";
-// for smoth animation for scroller 
+// for smoth animation for scroller
 import Lenis from "@studio-freight/lenis";
-import { useEffect } from "react";
-
-
+import { useEffect, useRef, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
+  const formRef = useRef();
+  const [loading, setLoading] = useState(false);
+
+  const [errors, setErrors] = useState({});
+  const [successAnim, setSuccessAnim] = useState(false);
+
+  // validation
+  const validateField = (name, value) => {
+    let message = "";
+
+    if (name === "user_name") {
+      if (!value.trim()) message = "Name is required";
+    }
+
+    if (name === "user_phone") {
+      const phoneRegex = /^[6-9]\d{9}$/;
+      if (!phoneRegex.test(value)) message = "Enter valid phone";
+    }
+
+    if (name === "user_email") {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) message = "Enter valid email";
+    }
+
+    if (name === "message") {
+      if (value.trim().length < 5) message = "Min 5 characters";
+    }
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: message,
+    }));
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    validateField(name, value);
+  };
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    const form = formRef.current;
+    const newErrors = {};
+
+    const name = form.user_name.value.trim();
+    const phone = form.user_phone.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name) newErrors.user_name = "Name is required";
+
+    const phoneRegex = /^[6-9]\d{9}$/;
+    if (!phoneRegex.test(phone)) newErrors.user_phone = "Enter valid phone";
+
+    if (message.length < 5) newErrors.message = "Min 5 characters";
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) return;
+
+    setLoading(true);
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+        formRef.current,
+        import.meta.env.VITE_EMAIL_PUBLIC_KEY,
+      )
+      .then(() => {
+        toast.success("Enquiry sent successfully ✨");
+        formRef.current.reset();
+        setErrors({});
+        setSuccessAnim(true);
+        setTimeout(() => setSuccessAnim(false), 1500);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Failed to send ❌");
+        setLoading(false);
+      });
+  };
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1,
@@ -39,7 +122,6 @@ const Home = () => {
   }, []);
   return (
     <>
-    
       <Navbar />
 
       {/* Main Content */}
@@ -140,7 +222,7 @@ const Home = () => {
                 },
                 {
                   title: "Party Makeup",
-                  img:Party ,
+                  img: Party,
                 },
               ].map((service, index) => (
                 <div
@@ -170,11 +252,11 @@ const Home = () => {
           </div>
         </section>
 
-        {/* 📸 Gallery Section */}
-       {/* 📸 Premium Gallery Section */}
-        <PremiumGallery/>
+        {/*  Gallery Section */}
+        {/*  Premium Gallery Section */}
+        <PremiumGallery />
 
-        {/* 📞 Contact Section */}
+        {/*  Contact Section */}
         <section className="py-20 px-6 md:px-20 bg-pink-100 text-center">
           <h2
             className="text-3xl md:text-4xl mb-10 text-pink-600"
@@ -183,41 +265,85 @@ const Home = () => {
             Book Your Appointment
           </h2>
 
-          <form className="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-xl space-y-5">
+          <form
+            ref={formRef}
+            onSubmit={sendEmail}
+            className="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-xl space-y-5"
+          >
             <input
               type="text"
+              name="user_name"
               placeholder="Full Name"
-              className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-pink-400"
+              onChange={handleChange}
+              className={`w-full border rounded-lg p-3 focus:outline-none transition
+              ${
+                errors.user_name
+                  ? "border-red-500 focus:ring-2 focus:ring-red-400"
+                  : "border-gray-200 focus:ring-2 focus:ring-pink-400"
+              }
+            `}
             />
+            {errors.user_name && (
+              <p className="text-red-500 text-sm text-left">
+                {errors.user_name}
+              </p>
+            )}
 
             <input
               type="tel"
+              name="user_phone"
               placeholder="Phone Number"
-              className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-pink-400"
+              onChange={handleChange}
+              className={`w-full border rounded-lg p-3 focus:outline-none transition
+              ${
+                errors.user_phone
+                  ? "border-red-500 focus:ring-2 focus:ring-red-400"
+                  : "border-gray-200 focus:ring-2 focus:ring-pink-400"
+              }
+            `}
             />
+            {errors.user_phone && (
+              <p className="text-red-500 text-sm text-left">
+                {errors.user_phone}
+              </p>
+            )}
 
             <input
               type="date"
+              name="event_date"
               className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-pink-400"
             />
 
             <textarea
+              name="message"
               placeholder="Message"
               rows="4"
-              className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-pink-400"
-            ></textarea>
+              onChange={handleChange}
+              className={`w-full border rounded-lg p-3 focus:outline-none transition
+              ${
+                errors.message
+                  ? "border-red-500 focus:ring-2 focus:ring-red-400"
+                  : "border-gray-200 focus:ring-2 focus:ring-pink-400"
+              }
+            `}
+            />
+            {errors.message && (
+              <p className="text-red-500 text-sm text-left">{errors.message}</p>
+            )}
 
             <button
               type="submit"
+              disabled={loading}
               className="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-[1.02]"
             >
-              Send Enquiry
+              {loading ? "Sending..." : "Send Enquiry"}
             </button>
           </form>
         </section>
       </main>
 
       <Footer />
+      <ToastContainer position="top-center" autoClose={3000} />
     </>
   );
 };

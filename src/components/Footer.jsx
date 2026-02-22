@@ -41,6 +41,7 @@ const Footer = () => {
               className="group bg-white/20 backdrop-blur-md p-3 rounded-full hover:bg-white/30 transition duration-300 hover:scale-110 shadow-lg"
             >
               <Instagram className="w-5 h-5 text-white group-hover:text-pink-100" />
+              
             </a>
 
             {/* WhatsApp */}
@@ -54,9 +55,9 @@ const Footer = () => {
             </a>
           </div>
 
-          <p className="text-xs mt-4 text-pink-100">
-            ▪️ DM to book your big day 📩 @dreamzz_makeover
-          </p>
+          {/* <p className="text-xs mt-4 text-pink-100">
+            ▪️ DM to book your big day 
+          </p> */}
         </div>
 
         {/* ⭐ Quick Links */}

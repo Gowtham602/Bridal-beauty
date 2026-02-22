@@ -1,102 +1,135 @@
 import React from "react";
+import {
+  Instagram,
+  Phone,
+  Mail,
+  MapPin,
+  MessageCircle,
+} from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-pink-600 text-white py-10 mt-10">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+    <footer className="relative bg-gradient-to-br from-rose-600 via-pink-600 to-fuchsia-700 text-white pt-20 pb-10 mt-20 overflow-hidden">
+      
+      {/* ✨ soft luxury glow */}
+      <div className="pointer-events-none absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_top_left,_white,_transparent_60%)]"></div>
 
-        {/* About */}
-        <div>
+      <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+
+        {/* ⭐ Brand */}
+        <div className="text-center md:text-left">
           <h2
-            className="text-2xl mb-4 font-semibold"
-            style={{ fontFamily: "Playfair Display" }}
+            className="text-3xl mb-4 font-semibold tracking-wide"
+            style={{ fontFamily: "Playfair Display, serif" }}
           >
-            Bridal Beauty
+            Dreams Makeover
           </h2>
-          <p className="text-sm">
+
+          <p className="text-sm leading-relaxed text-pink-100">
             Making your wedding moments magical with professional bridal makeup,
             mehendi, and saree draping services.
           </p>
+
+          {/* ⭐ Social icons */}
+          <div className="flex justify-center md:justify-start gap-4 mt-6">
+            
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/dreamzz_makeover"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-white/20 backdrop-blur-md p-3 rounded-full hover:bg-white/30 transition duration-300 hover:scale-110 shadow-lg"
+            >
+              <Instagram className="w-5 h-5 text-white group-hover:text-pink-100" />
+            </a>
+
+            {/* WhatsApp */}
+            <a
+              href="https://wa.me/917845015144"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-white/20 backdrop-blur-md p-3 rounded-full hover:bg-green-500 transition duration-300 hover:scale-110 shadow-lg"
+            >
+              <MessageCircle className="w-5 h-5 text-white" />
+            </a>
+          </div>
+
+          <p className="text-xs mt-4 text-pink-100">
+            ▪️ DM to book your big day 📩 @dreamzz_makeover
+          </p>
         </div>
 
-        {/* Quick Links */}
-        <div>
-          <h3 className="text-xl mb-4 font-semibold">Quick Links</h3>
-          <ul className="space-y-2 text-sm">
-            <li className="hover:underline cursor-pointer">Home</li>
-            <li className="hover:underline cursor-pointer">Services</li>
-            <li className="hover:underline cursor-pointer">Gallery</li>
-            <li className="hover:underline cursor-pointer">Contact</li>
+        {/* ⭐ Quick Links */}
+        <div className="text-center md:text-left">
+          <h3 className="text-xl mb-5 font-semibold tracking-wide">
+            Quick Links
+          </h3>
+
+          <ul className="space-y-3 text-sm text-pink-100">
+            {["Home", "Services", "Gallery", "Contact"].map((item) => (
+              <li
+                key={item}
+                className="cursor-pointer hover:translate-x-2 hover:text-white transition duration-300"
+              >
+                → {item}
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* Contact */}
-        {/* Contact */}
-<div>
-  <h3 className="text-xl mb-4 font-semibold">Contact</h3>
+        {/* ⭐ Contact */}
+        <div className="text-center md:text-left">
+          <h3 className="text-xl mb-5 font-semibold tracking-wide">
+            Contact
+          </h3>
 
-  {/* Location */}
-  <div className="flex items-center justify-center md:justify-start gap-2 text-sm mb-2">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="w-5 h-5 text-white"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 21c4-4.5 6-8 6-11a6 6 0 10-12 0c0 3 2 6.5 6 11z"
-      />
-    </svg>
-    <span>Chennai, Tamil Nadu</span>
-  </div>
+          <div className="flex items-center justify-center md:justify-start gap-2 text-sm mb-3 text-pink-100">
+            <MapPin className="w-4 h-4" />
+            <span>Cuddalore & Chennai, Tamil Nadu</span>
+          </div>
 
-  {/* Phone */}
-  <div className="flex items-center justify-center md:justify-start gap-2 text-sm mb-2">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="w-5 h-5 text-white"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M2.25 6.75c0 7.04 5.71 12.75 12.75 12.75h1.5a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106a1.125 1.125 0 00-1.173.417l-.97 1.293a9.75 9.75 0 01-4.875-4.875l1.293-.97c.363-.272.53-.74.417-1.173L9.713 4.852A1.125 1.125 0 008.622 4H7.25A2.25 2.25 0 005 6.25v.5z"
-      />
-    </svg>
-    <span>+91 98765 43210</span>
-  </div>
+          {/* 📞 Phone 1 */}
+          <a
+            href="tel:+917845015144"
+            className="flex items-center justify-center md:justify-start gap-2 text-sm mb-2 text-pink-100 hover:text-white transition"
+          >
+            <Phone className="w-4 h-4" />
+            <span>+91 78450 15144</span>
+          </a>
 
-  {/* Email */}
-  <div className="flex items-center justify-center md:justify-start gap-2 text-sm">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="w-5 h-5 text-white"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M21.75 7.5v9A2.25 2.25 0 0119.5 18.75h-15A2.25 2.25 0 012.25 16.5v-9m19.5 0l-9.75 6.75L2.25 7.5m19.5 0A2.25 2.25 0 0019.5 5.25h-15A2.25 2.25 0 002.25 7.5"
-      />
-    </svg>
-    <span>bridalbeauty@email.com</span>
-  </div>
-</div>
+          {/* 📞 Phone 2 */}
+          <a
+            href="tel:+919363157507"
+            className="flex items-center justify-center md:justify-start gap-2 text-sm mb-4 text-pink-100 hover:text-white transition"
+          >
+            <Phone className="w-4 h-4" />
+            <span>+91 93631 57507</span>
+          </a>
 
+          <div className="flex items-center justify-center md:justify-start gap-2 text-sm mb-4 text-pink-100">
+            <Mail className="w-4 h-4" />
+            <span>bridalbeauty@email.com</span>
+          </div>
+        </div>
       </div>
 
-      <div className="text-center text-sm mt-8 border-t border-pink-400 pt-4">
-        © {new Date().getFullYear()} Bridal Beauty. All rights reserved.
+      {/* ⭐ Bottom */}
+      <div className="text-center text-sm mt-14 border-t border-white/20 pt-6 space-y-2">
+        <p className="text-pink-100">
+          © {new Date().getFullYear()} Dreams Makeover. All rights reserved.
+        </p>
+
+        <p className="text-pink-200">
+          Developed by{" "}
+          <a
+            href="https://www.instagram.com/_gowtham_602"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-white transition font-medium"
+          >
+            Gowtham
+          </a>
+        </p>
       </div>
     </footer>
   );

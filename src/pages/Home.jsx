@@ -1,7 +1,15 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+// image 
 import Profile from "../assets/profile-pic.jpg";
+import Bridal from "../assets/bridal-pic-original.jpg"
+import Reception from "../assets/reception-pic-2.jpg"
+import Mahanthi from "../assets/mahanthi-pic-1.jpg"
+import Saree from "../assets/saree-draping-pic-2.jpg"
+import Hair from "../assets/hairstyling.jpg"
+import Party from "../assets/partymakeup.jpg"
+
 import PremiumGallery from "../components/PremiumGallery";
 // for smoth animation for scroller 
 import Lenis from "@studio-freight/lenis";
@@ -112,27 +120,27 @@ const Home = () => {
               {[
                 {
                   title: "Bridal Makeup",
-                  img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9",
+                  img: Bridal,
                 },
                 {
                   title: "Reception Makeup",
-                  img: "https://images.unsplash.com/photo-1596462502278-27bfdc403348",
+                  img: Reception,
                 },
                 {
                   title: "Mehendi Design",
-                  img: "https://images.unsplash.com/photo-1603570419886-3f8c6f4b1a8d",
+                  img: Mahanthi,
                 },
                 {
                   title: "Saree Draping",
-                  img: "https://images.unsplash.com/photo-1583391733956-6c78276477e9",
+                  img: Saree,
                 },
                 {
                   title: "Hair Styling",
-                  img: "https://images.unsplash.com/photo-1519741497674-611481863552",
+                  img: Hair,
                 },
                 {
                   title: "Party Makeup",
-                  img: "https://images.unsplash.com/photo-1517841905240-472988babdf9",
+                  img:Party ,
                 },
               ].map((service, index) => (
                 <div
@@ -143,7 +151,7 @@ const Home = () => {
                   <img
                     src={service.img}
                     alt={service.title}
-                    className="w-full h-72 object-cover transition duration-700 group-hover:scale-110"
+                    className="w-full h-72 object-cover object-top transition duration-700 group-hover:scale-105"
                   />
 
                   {/* Dark Overlay */}

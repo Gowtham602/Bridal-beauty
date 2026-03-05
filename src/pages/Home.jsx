@@ -225,32 +225,32 @@ const Home = () => {
                 {
                   title: "Bridal Makeup",
                   img: Bridal,
-                   link: "/service/bridal",
+                  //  link: "/service/bridal",
                 },
                 {
                   title: "Reception Makeup",
                   img: Reception,
-                    link: "/service/reception",
+                    // link: "/service/reception",
                 },
                 {
                   title: "Mehendi Design",
                   img: Mahanthi,
-                   link: "/service/mehendi",
+                  //  link: "/service/mehendi",
                 },
                 {
                   title: "Saree Draping",
                   img: Saree,
-                   link: "/service/saree-draping",
+                  //  link: "/service/saree-draping",
                 },
                 {
                   title: "Hair Styling",
                   img: Hair,
-                   link: "/service/hair-styling",
+                  //  link: "/service/hair-styling",
                 },
                 {
                   title: "Party Makeup",
                   img: Party,
-                   link: "/service/party-makeup",
+                  //  link: "/service/party-makeup",
                 },
               ].map((service, index) => (
                 <Link to={service.link}>

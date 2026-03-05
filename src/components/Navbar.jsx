@@ -102,12 +102,12 @@ const Navbar = () => {
 ))}
         </ul>
 
-        {/* 🎀 Book Button */}
+        {/*  Book Button */}
         <button className="hidden md:block bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 hover:scale-105 active:scale-95">
           Book Now
         </button>
 
-        {/* 📱 Animated Hamburger */}
+        {/*  Animated Hamburger */}
         <div className="md:hidden">
           <button
             aria-label="Toggle menu"
@@ -133,7 +133,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* 📱 Mobile Menu */}
+      {/*  Mobile Menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 bg-white/95 backdrop-blur-md ${
           isOpen ? "max-h-96 py-4" : "max-h-0"

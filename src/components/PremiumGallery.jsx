@@ -1,13 +1,18 @@
 import { useState, useEffect } from "react";
 import { FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
-
+import Gallery1 from "../assets/gallery/gallery-1.png";
+import Gallery2 from "../assets/gallery/gallery.png";
 const images = [
-  "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9",
+Gallery1,
+Gallery2,
+ "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9",
   "https://images.unsplash.com/photo-1596462502278-27bfdc403348",
-  "https://images.unsplash.com/photo-1603570419886-3f8c6f4b1a8d",
-  "https://images.unsplash.com/photo-1583391733956-6c78276477e9",
 ];
 
+  // "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9",
+  // "https://images.unsplash.com/photo-1596462502278-27bfdc403348",
+  // "https://images.unsplash.com/photo-1603570419886-3f8c6f4b1a8d",
+  // "https://images.unsplash.com/photo-1583391733956-6c78276477e9",
 export default function PremiumGallery() {
   const [selectedIndex, setSelectedIndex] = useState(null);
 
@@ -33,6 +38,16 @@ export default function PremiumGallery() {
 
       {/* Gallery Grid */}
       <div className="columns-2 md:columns-3 gap-5 space-y-5 max-w-6xl mx-auto">
+      {/* <p className="uppercase tracking-[4px] text-[12px] text-gray-500 mb-4">
+              What We Offer
+            </p> */}
+
+            <h2
+              className="text-4xl md:text-5xl font-light text-[#2A2A2A] mb-6"
+              style={{ fontFamily: "Playfair Display, serif" }}
+            >
+              Our <span className="italic text-[#C6A75E]">Gallerys</span>
+            </h2>
         {images.map((img, index) => (
           <div
             key={index}

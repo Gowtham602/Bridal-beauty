@@ -101,13 +101,15 @@ const Navbar = () => {
         </ul>
 
         {/*  Book Button */}
-        <button 
+        <button
           onClick={() => {
-                    const contact = document.querySelector("#contact");
-                    if (contact) {
-                      contact.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }}className="hidden md:block bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 hover:scale-105 active:scale-95">
+            const contact = document.querySelector("#contact");
+            if (contact) {
+              contact.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+          className="hidden md:block bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 hover:scale-105 active:scale-95"
+        >
           Book Now
         </button>
 
@@ -143,9 +145,10 @@ const Navbar = () => {
           isOpen ? "max-h-96 py-4" : "max-h-0"
         }`}
       >
-        <div className="px-6 space-y-4 text-gray-700 font-medium">
+        <div className="px-6 space-y-3 text-gray-700 font-medium">
           {menuItems.map((item) => (
             <a
+              key={item.name}
               href={item.link}
               onClick={(e) => {
                 e.preventDefault();
@@ -153,8 +156,9 @@ const Navbar = () => {
                 if (section) {
                   section.scrollIntoView({ behavior: "smooth" });
                 }
+                setIsOpen(false);
               }}
-              className={`relative transition ${
+              className={`block text-lg py-2 transition ${
                 active === item.link.replace("#", "")
                   ? "text-pink-600"
                   : "text-gray-700 hover:text-pink-600"
@@ -163,7 +167,15 @@ const Navbar = () => {
               {item.name}
             </a>
           ))}
-          <button className="w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white py-2 rounded-full shadow-md">
+
+          <button
+            onClick={() => {
+              const contact = document.querySelector("#contact");
+              if (contact) contact.scrollIntoView({ behavior: "smooth" });
+              setIsOpen(false);
+            }}
+            className="w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white py-3 rounded-full shadow-md"
+          >
             Book Now
           </button>
         </div>

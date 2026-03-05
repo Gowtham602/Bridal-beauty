@@ -14,36 +14,34 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   const [active, setActive] = useState("home");
 
- useEffect(() => {
-  const sections = document.querySelectorAll("section[id]");
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
 
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
 
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 150;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute("id");
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute("id");
 
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        setActive(sectionId);
-      }
-    });
-  };
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          setActive(sectionId);
+        }
+      });
+    };
 
- 
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
- const menuItems = [
-  { name: "Home", link: "#home" },
-  { name: "Services", link: "#services" },
-  { name: "Gallery", link: "#gallery" },
-  { name: "Contact", link: "#contact" },
-];
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  const menuItems = [
+    { name: "Home", link: "#home" },
+    { name: "Services", link: "#services" },
+    { name: "Gallery", link: "#gallery" },
+    { name: "Contact", link: "#contact" },
+  ];
 
   return (
     <nav
@@ -69,7 +67,7 @@ const Navbar = () => {
               className="text-xl md:text-2xl font-bold bg-gradient-to-r from-pink-500 via-rose-400 to-pink-600 bg-clip-text text-transparent tracking-wide"
               style={{ fontFamily: "Playfair Display" }}
             >
-                 Dreams Makeover
+              Dreams Makeover
             </h1>
             <p className="text-[9px] tracking-[0.35em] text-pink-400 uppercase">
               Luxury Bridal Studio
@@ -79,31 +77,37 @@ const Navbar = () => {
 
         {/*  Desktop Menu */}
         <ul className="hidden md:flex items-center space-x-8 text-gray-700 font-medium">
-         {menuItems.map((item) => (
-  <li key={item.name}>
-   <a
-  href={item.link}
-  onClick={(e) => {
-    e.preventDefault();
-    const section = document.querySelector(item.link);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
-  className={`relative transition ${
-    active === item.link.replace("#", "")
-      ? "text-pink-600"
-      : "text-gray-700 hover:text-pink-600"
-  }`}
->
-  {item.name}
-</a>
-  </li>
-))}
+          {menuItems.map((item) => (
+            <li key={item.name}>
+              <a
+                href={item.link}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const section = document.querySelector(item.link);
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                className={`relative transition ${
+                  active === item.link.replace("#", "")
+                    ? "text-pink-600"
+                    : "text-gray-700 hover:text-pink-600"
+                }`}
+              >
+                {item.name}
+              </a>
+            </li>
+          ))}
         </ul>
 
         {/*  Book Button */}
-        <button className="hidden md:block bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 hover:scale-105 active:scale-95">
+        <button 
+          onClick={() => {
+                    const contact = document.querySelector("#contact");
+                    if (contact) {
+                      contact.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}className="hidden md:block bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 hover:scale-105 active:scale-95">
           Book Now
         </button>
 
@@ -140,24 +144,24 @@ const Navbar = () => {
         }`}
       >
         <div className="px-6 space-y-4 text-gray-700 font-medium">
-         {menuItems.map((item) => (
-           <a
-  href={item.link}
-  onClick={(e) => {
-    e.preventDefault();
-    const section = document.querySelector(item.link);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
-  className={`relative transition ${
-    active === item.link.replace("#", "")
-      ? "text-pink-600"
-      : "text-gray-700 hover:text-pink-600"
-  }`}
->
-  {item.name}
-</a>
+          {menuItems.map((item) => (
+            <a
+              href={item.link}
+              onClick={(e) => {
+                e.preventDefault();
+                const section = document.querySelector(item.link);
+                if (section) {
+                  section.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className={`relative transition ${
+                active === item.link.replace("#", "")
+                  ? "text-pink-600"
+                  : "text-gray-700 hover:text-pink-600"
+              }`}
+            >
+              {item.name}
+            </a>
           ))}
           <button className="w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white py-2 rounded-full shadow-md">
             Book Now

@@ -126,9 +126,11 @@ const Home = () => {
 
       {/* Main Content */}
       <main className="pt-10 relative z-10 bg-pink-50">
-      
-          {/* //home  */}
-        <section  id="home" className="relative bg-[#FDF6F9] overflow-hidden pt-20 pb-10 md:pt-15 pb-10">
+        {/* //home  */}
+        <section
+          id="home"
+          className="relative bg-[#FDF6F9] overflow-hidden pt-20 pb-10 md:pt-15 pb-10"
+        >
           <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left Content */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
@@ -158,11 +160,27 @@ const Home = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
-                <button className="bg-[#C6A75E] text-white px-10 py-3 text-[12px] tracking-[2px] rounded-full hover:bg-[#b89347] transition duration-300 shadow-md">
+                <button
+                  onClick={() => {
+                    const contact = document.querySelector("#contact");
+                    if (contact) {
+                      contact.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  className="bg-[#C6A75E] text-white px-10 py-3 text-[12px] tracking-[2px] rounded-full hover:bg-[#b89347] transition duration-300 shadow-md"
+                >
                   RESERVE YOUR DATE
                 </button>
 
-                <button className="border border-[#C6A75E] text-[#2A2A2A] px-10 py-3 text-[12px] tracking-[2px] rounded-full hover:bg-[#C6A75E] hover:text-white transition duration-300">
+                <button
+                  onClick={() => {
+                    const section = document.querySelector("#services");
+                    if (section) {
+                      section.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  className="border border-[#C6A75E] text-[#2A2A2A] px-10 py-3 text-[12px] tracking-[2px] rounded-full hover:bg-[#C6A75E] hover:text-white transition duration-300"
+                >
                   EXPLORE SERVICES
                 </button>
               </div>
@@ -183,7 +201,10 @@ const Home = () => {
         </section>
 
         {/*  Services Section */}
-        <section  id="services"className="relative bg-[#FDF6F9] py-4 px-6 md:px-16 overflow-hidden">
+        <section
+          id="services"
+          className="relative bg-[#FDF6F9] py-4 px-6 md:px-16 overflow-hidden"
+        >
           <div className="max-w-7xl mx-auto text-center">
             <p className="uppercase tracking-[4px] text-[12px] text-gray-500 mb-4">
               What We Offer
@@ -253,12 +274,15 @@ const Home = () => {
         </section>
 
         {/*  Gallery Section */}
-       <section id="gallery">
-        <PremiumGallery />
-      </section>
+        <section id="gallery">
+          <PremiumGallery />
+        </section>
 
         {/*  Contact Section */}
-        <section id="contact" className="py-20 px-6 md:px-20 bg-pink-100 text-center">
+        <section
+          id="contact"
+          className="py-20 px-6 md:px-20 bg-pink-100 text-center"
+        >
           <h2
             className="text-3xl md:text-4xl mb-10 text-pink-600"
             style={{ fontFamily: "Playfair Display" }}

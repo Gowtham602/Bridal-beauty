@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo-3.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +14,36 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const menuItems = ["Home", "Services", "Gallery", "Contact"];
+
+  const [active, setActive] = useState("home");
+
+ useEffect(() => {
+  const sections = document.querySelectorAll("section[id]");
+
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 150;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute("id");
+
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        setActive(sectionId);
+      }
+    });
+  };
+
+ 
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+ const menuItems = [
+  { name: "Home", link: "#home" },
+  { name: "Services", link: "#services" },
+  { name: "Gallery", link: "#gallery" },
+  { name: "Contact", link: "#contact" },
+];
 
   return (
     <nav
@@ -28,19 +57,19 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-5 md:px-6 flex justify-between items-center">
         {/*  Premium Logo */}
         <div className="flex items-center gap-3 cursor-pointer group select-none shrink-0">
-          <img
-            src={logo}
-            alt="Bridal Beauty Logo"
+          {/* <img
+            // src={logo}
+            alt=" Dreams Makeover Logo"
             className="w-12 h-12 md:w-14 md:h-14 object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-105"
             style={{ imageRendering: "auto" }}
-          />
+          /> */}
 
           <div className="leading-tight">
             <h1
               className="text-xl md:text-2xl font-bold bg-gradient-to-r from-pink-500 via-rose-400 to-pink-600 bg-clip-text text-transparent tracking-wide"
               style={{ fontFamily: "Playfair Display" }}
             >
-              Bridal Beauty
+                 Dreams Makeover
             </h1>
             <p className="text-[9px] tracking-[0.35em] text-pink-400 uppercase">
               Luxury Bridal Studio
@@ -48,19 +77,29 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* 💎 Desktop Menu */}
+        {/*  Desktop Menu */}
         <ul className="hidden md:flex items-center space-x-8 text-gray-700 font-medium">
-          {menuItems.map((item) => (
-            <li
-              key={item}
-              className="relative cursor-pointer hover:text-pink-600 transition
-              after:absolute after:left-0 after:-bottom-1 after:h-[2px]
-              after:w-0 after:bg-pink-500 after:transition-all after:duration-300
-              hover:after:w-full"
-            >
-              {item}
-            </li>
-          ))}
+         {menuItems.map((item) => (
+  <li key={item.name}>
+   <a
+  href={item.link}
+  onClick={(e) => {
+    e.preventDefault();
+    const section = document.querySelector(item.link);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+  className={`relative transition ${
+    active === item.link.replace("#", "")
+      ? "text-pink-600"
+      : "text-gray-700 hover:text-pink-600"
+  }`}
+>
+  {item.name}
+</a>
+  </li>
+))}
         </ul>
 
         {/* 🎀 Book Button */}
@@ -101,16 +140,25 @@ const Navbar = () => {
         }`}
       >
         <div className="px-6 space-y-4 text-gray-700 font-medium">
-          {menuItems.map((item) => (
-            <div
-              key={item}
-              onClick={() => setIsOpen(false)}
-              className="hover:text-pink-600 cursor-pointer transition"
-            >
-              {item}
-            </div>
+         {menuItems.map((item) => (
+           <a
+  href={item.link}
+  onClick={(e) => {
+    e.preventDefault();
+    const section = document.querySelector(item.link);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+  className={`relative transition ${
+    active === item.link.replace("#", "")
+      ? "text-pink-600"
+      : "text-gray-700 hover:text-pink-600"
+  }`}
+>
+  {item.name}
+</a>
           ))}
-
           <button className="w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white py-2 rounded-full shadow-md">
             Book Now
           </button>

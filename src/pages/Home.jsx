@@ -88,7 +88,7 @@ const Home = () => {
         import.meta.env.VITE_EMAIL_PUBLIC_KEY,
       )
       .then(() => {
-        toast.success("Enquiry sent successfully ✨");
+        toast.success("Enquiry sent successfully ");
         formRef.current.reset();
         setErrors({});
         setSuccessAnim(true);
@@ -97,7 +97,7 @@ const Home = () => {
       })
       .catch((error) => {
         console.log(error);
-        toast.error("Failed to send ❌");
+        toast.error("Failed to send ");
         setLoading(false);
       });
   };
@@ -126,9 +126,9 @@ const Home = () => {
 
       {/* Main Content */}
       <main className="pt-10 relative z-10 bg-pink-50">
-        {/*  Hero Section */}
-
-        <section className="relative bg-[#FDF6F9] overflow-hidden pt-20 pb-10 md:pt-15 pb-10">
+      
+          {/* //home  */}
+        <section  id="home" className="relative bg-[#FDF6F9] overflow-hidden pt-20 pb-10 md:pt-15 pb-10">
           <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left Content */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
@@ -182,8 +182,8 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Premium Services Section */}
-        <section className="relative bg-[#FDF6F9] py-4 px-6 md:px-16 overflow-hidden">
+        {/*  Services Section */}
+        <section  id="services"className="relative bg-[#FDF6F9] py-4 px-6 md:px-16 overflow-hidden">
           <div className="max-w-7xl mx-auto text-center">
             <p className="uppercase tracking-[4px] text-[12px] text-gray-500 mb-4">
               What We Offer
@@ -253,11 +253,12 @@ const Home = () => {
         </section>
 
         {/*  Gallery Section */}
-        {/*  Premium Gallery Section */}
+       <section id="gallery">
         <PremiumGallery />
+      </section>
 
         {/*  Contact Section */}
-        <section className="py-20 px-6 md:px-20 bg-pink-100 text-center">
+        <section id="contact" className="py-20 px-6 md:px-20 bg-pink-100 text-center">
           <h2
             className="text-3xl md:text-4xl mb-10 text-pink-600"
             style={{ fontFamily: "Playfair Display" }}

@@ -2,6 +2,7 @@ import React from "react";
 import emailjs from "@emailjs/browser";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 // image
 import Profile from "../assets/profile-pic.jpg";
 import Bridal from "../assets/bridal-pic-original.jpg";
@@ -224,30 +225,38 @@ const Home = () => {
                 {
                   title: "Bridal Makeup",
                   img: Bridal,
+                   link: "/service/bridal",
                 },
                 {
                   title: "Reception Makeup",
                   img: Reception,
+                    link: "/service/reception",
                 },
                 {
                   title: "Mehendi Design",
                   img: Mahanthi,
+                   link: "/service/mehendi",
                 },
                 {
                   title: "Saree Draping",
                   img: Saree,
+                   link: "/service/saree-draping",
                 },
                 {
                   title: "Hair Styling",
                   img: Hair,
+                   link: "/service/hair-styling",
                 },
                 {
                   title: "Party Makeup",
                   img: Party,
+                   link: "/service/party-makeup",
                 },
               ].map((service, index) => (
+                <Link to={service.link}>
                 <div
                   key={index}
+                  
                   className="group relative overflow-hidden rounded-[30px] shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition duration-500 hover:-translate-y-3"
                 >
                   {/* Image */}
@@ -268,6 +277,7 @@ const Home = () => {
                     <div className="w-10 h-[2px] bg-[#C6A75E] mx-auto"></div>
                   </div>
                 </div>
+                </Link>
               ))}
             </div>
           </div>

@@ -42,6 +42,7 @@ const Navbar = () => {
     { name: "Gallery", link: "#gallery" },
     { name: "Contact", link: "#contact" },
   ];
+  
 
   return (
     <nav
@@ -85,7 +86,12 @@ const Navbar = () => {
                   e.preventDefault();
                   const section = document.querySelector(item.link);
                   if (section) {
-                    section.scrollIntoView({ behavior: "smooth" });
+                   const top = section.offsetTop - 80;
+
+                    window.scrollTo({
+                      top: top,
+                      behavior: "smooth",
+                    });
                   }
                 }}
                 className={`relative transition ${
@@ -154,7 +160,11 @@ const Navbar = () => {
                 e.preventDefault();
                 const section = document.querySelector(item.link);
                 if (section) {
-                  section.scrollIntoView({ behavior: "smooth" });
+                  const top = section.offsetTop - 80;
+                  window.scrollTo({
+                    top: top,
+                    behavior: "smooth",
+                  });
                 }
                 setIsOpen(false);
               }}

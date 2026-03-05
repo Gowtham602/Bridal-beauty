@@ -35,19 +35,24 @@ export default function PremiumGallery() {
 
   return (
     <section className="py-20 px-6 bg-[#F8F4EF]">
-
+      <h2
+              className="text-4xl md:text-5xl font-light text-[#2A2A2A] mb-6"
+              style={{ fontFamily: "Playfair Display, serif" }}
+            >
+              Our <span className="italic text-[#C6A75E]">Gallerys</span>
+            </h2>
       {/* Gallery Grid */}
       <div className="columns-2 md:columns-3 gap-5 space-y-5 max-w-6xl mx-auto">
       {/* <p className="uppercase tracking-[4px] text-[12px] text-gray-500 mb-4">
               What We Offer
             </p> */}
 
-            <h2
+            {/* <h2
               className="text-4xl md:text-5xl font-light text-[#2A2A2A] mb-6"
               style={{ fontFamily: "Playfair Display, serif" }}
             >
               Our <span className="italic text-[#C6A75E]">Gallerys</span>
-            </h2>
+            </h2> */}
         {images.map((img, index) => (
           <div
             key={index}

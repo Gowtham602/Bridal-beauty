@@ -11,12 +11,12 @@ const Footer = () => {
   return (
     <footer className="relative bg-gradient-to-br from-rose-600 via-pink-600 to-fuchsia-700 text-white pt-20 pb-10 mt-20 overflow-hidden">
       
-      {/* ✨ soft luxury glow */}
+      {/*  soft luxury glow */}
       <div className="pointer-events-none absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_top_left,_white,_transparent_60%)]"></div>
 
       <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
 
-        {/* ⭐ Brand */}
+        {/*  Brand */}
         <div className="text-center md:text-left">
           <h2
             className="text-3xl mb-4 font-semibold tracking-wide"
@@ -30,7 +30,7 @@ const Footer = () => {
             mehendi, and saree draping services.
           </p>
 
-          {/* ⭐ Social icons */}
+          {/*  Social icons */}
           <div className="flex justify-center md:justify-start gap-4 mt-6">
             
             {/* Instagram */}
@@ -60,25 +60,44 @@ const Footer = () => {
           </p> */}
         </div>
 
-        {/* ⭐ Quick Links */}
+        {/*  Quick Links */}
         <div className="text-center md:text-left">
           <h3 className="text-xl mb-5 font-semibold tracking-wide">
             Quick Links
           </h3>
 
           <ul className="space-y-3 text-sm text-pink-100">
-            {["Home", "Services", "Gallery", "Contact"].map((item) => (
-              <li
-                key={item}
-                className="cursor-pointer hover:translate-x-2 hover:text-white transition duration-300"
-              >
-                → {item}
-              </li>
-            ))}
-          </ul>
+  {[
+    { name: "Home", link: "#home" },
+    { name: "Services", link: "#services" },
+    { name: "Gallery", link: "#gallery" },
+    { name: "Contact", link: "#contact" },
+  ].map((item) => (
+    <li key={item.name}>
+      <a
+        href={item.link}
+        onClick={(e) => {
+  e.preventDefault();
+  const section = document.querySelector(item.link);
+
+  if (section) {
+    const top = section.offsetTop - 80; // navbar height
+    window.scrollTo({
+      top: top,
+      behavior: "smooth",
+    });
+  }
+}}
+        className="cursor-pointer hover:translate-x-2 hover:text-white transition duration-300 block"
+      >
+        → {item.name}
+      </a>
+    </li>
+  ))}
+</ul>
         </div>
 
-        {/* ⭐ Contact */}
+        {/*  Contact */}
         <div className="text-center md:text-left">
           <h3 className="text-xl mb-5 font-semibold tracking-wide">
             Contact
@@ -89,7 +108,7 @@ const Footer = () => {
             <span>Cuddalore & Chennai, Tamil Nadu</span>
           </div>
 
-          {/* 📞 Phone 1 */}
+          {/*  Phone 1 */}
           <a
             href="tel:+917845015144"
             className="flex items-center justify-center md:justify-start gap-2 text-sm mb-2 text-pink-100 hover:text-white transition"
@@ -98,7 +117,7 @@ const Footer = () => {
             <span>+91 78450 15144</span>
           </a>
 
-          {/* 📞 Phone 2 */}
+          {/*  Phone 2 */}
           <a
             href="tel:+919363157507"
             className="flex items-center justify-center md:justify-start gap-2 text-sm mb-4 text-pink-100 hover:text-white transition"
@@ -114,7 +133,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* ⭐ Bottom */}
+      {/*  Bottom */}
       <div className="text-center text-sm mt-14 border-t border-white/20 pt-6 space-y-2">
         <p className="text-pink-100">
           © {new Date().getFullYear()} Dreams Makeover. All rights reserved.
